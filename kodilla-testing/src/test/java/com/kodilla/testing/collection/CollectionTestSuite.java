@@ -37,9 +37,13 @@ public class CollectionTestSuite {
         numbers.add(4);
         numbers.add(5);
         numbers.add(6);
+        ArrayList<Integer> oddNumbers = new ArrayList<Integer>();
+        oddNumbers.add(2);
+        oddNumbers.add(4);
+        oddNumbers.add(6);
          //when
         ArrayList<Integer> test = oddNumber.exterminate(numbers);
         //then
-        Assert.assertTrue(test.get(0) == 2 && test.get(1) == 4 && test.get(2) == 6);
+        Assert.assertEquals(test, oddNumbers);
         }
 }
