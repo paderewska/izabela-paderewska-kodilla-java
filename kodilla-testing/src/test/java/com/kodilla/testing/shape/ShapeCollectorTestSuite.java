@@ -22,9 +22,8 @@ public class ShapeCollectorTestSuite {
         System.out.println("Preparing to execute test #" + testCounter);
     }
     @After
-    public void aftereEveryTest() {
-        testCounter++;
-        System.out.println("Test #" + testCounter + "finished");
+    public void afterEveryTest() {
+        System.out.println("Test #" + testCounter + " finished");
     }
 
     @Test
@@ -48,9 +47,10 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(square1);
 
         //When
-        shapeCollector.removeFigure(square1);
+        boolean result = shapeCollector.removeFigure(square1);
 
         //Then
+        Assert.assertTrue(result);
         Assert.assertEquals(0, shapeCollector.theList.size());
     }
 
