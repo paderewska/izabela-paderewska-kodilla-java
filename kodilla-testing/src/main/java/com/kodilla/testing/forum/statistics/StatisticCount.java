@@ -4,7 +4,7 @@ public class StatisticCount {
 
     Statistics statistics;
 
-    public StatisticCount(Statistics statistics){
+    public StatisticCount(Statistics statistics) {
         this.statistics = statistics;
     }
 
@@ -39,31 +39,32 @@ public class StatisticCount {
         return avgCommentPerPost;
     }
 
-    public String calculateAvgStatistics(Statistics statistics){
+    public void calculateAvgStatistics(Statistics statistics) {
         int userNumberDraft = statistics.userNames().size();
-        if(userNumberDraft!= 0){
-            usersNumber = (double) userNumberDraft;
-            int postNumberDraft = statistics.postsCount();
-            if(postNumberDraft!= 0) {
-                postsNumber = (double) postNumberDraft;
-                int commentsNumberDraft = statistics.commentsCount();
-                commentsNumber = (double) commentsNumberDraft;
-                avgPostPerUser = postsNumber / usersNumber;
-                avgCommentPerUser = commentsNumber / usersNumber;
-                avgCommentPerPost = commentsNumber / postsNumber;
-                return null;
-            }else{
-                return "Brak postów na forum";
-            }
+        usersNumber = (double) userNumberDraft;
+        int postNumberDraft = statistics.postsCount();
+        postsNumber = (double) postNumberDraft;
+        int commentsNumberDraft = statistics.commentsCount();
+        commentsNumber = (double) commentsNumberDraft;
+
+        if (usersNumber != 0.0 && postsNumber != 0.0) {
+            avgPostPerUser = postsNumber / usersNumber;
         } else {
-            return "Brak użytkowników na forum";
+            avgPostPerUser = 0.0;
+        }
+        if (usersNumber != 0.0 && commentsNumber != 0.0) {
+            avgCommentPerUser = commentsNumber / usersNumber;
+        } else {
+            avgCommentPerUser = 0.0;
+        }
+        if (postsNumber != 0.0 && commentsNumber != 0.0) {
+            avgCommentPerPost = commentsNumber / postsNumber;
+        } else {
+            avgCommentPerPost = 0.0;
         }
     }
 
     public void ShowStatistics() {
-        if(calculateAvgStatistics(statistics) != null){
-            System.out.println(calculateAvgStatistics(statistics));
-        }
         System.out.println("Liczba użytkowników: " + usersNumber);
         System.out.println("Liczba postów: " + postsNumber);
         System.out.println("Liczba komentarzy: " + commentsNumber);
