@@ -40,6 +40,7 @@ public class StatisticCountTest {
         StatisticCount statisticCount = new StatisticCount(statisticsMock);
 
         //When
+       String text = statisticCount.calculateAvgStatistics(statisticsMock);
        statisticCount.calculateAvgStatistics(statisticsMock);
        double postPerUser = statisticCount.getAvgPostPerUser();
        double commentPerUser = statisticCount.getAvgCommentPerUser();
@@ -48,10 +49,10 @@ public class StatisticCountTest {
        System.out.println("WARUNEK: Gdy liczba postów = 0");
        statisticCount.ShowStatistics();
 
-       //Then
-        Assert.assertEquals(0.0, postPerUser, 0);
-        Assert.assertEquals(4.0, commentPerUser, 0);
-        Assert.assertEquals(400.0/0.0, commentPerPost, 0);
+       String textUser = "Brak postów na forum";
+
+        //Then
+        Assert.assertEquals(textUser, text);
     }
 
     @Test
@@ -172,7 +173,7 @@ public class StatisticCountTest {
         StatisticCount statisticCount = new StatisticCount(statisticsMock);
 
         //When
-        statisticCount.calculateAvgStatistics(statisticsMock);
+        String cos = statisticCount.calculateAvgStatistics(statisticsMock);
         double postPerUser = statisticCount.getAvgPostPerUser();
         double commentPerUser = statisticCount.getAvgCommentPerUser();
         double commentPerPost = statisticCount.getAvgCommentPerPost();
@@ -203,18 +204,17 @@ public class StatisticCountTest {
         StatisticCount statisticCount = new StatisticCount(statisticsMock);
 
         //When
-        statisticCount.calculateAvgStatistics(statisticsMock);
+        String text = statisticCount.calculateAvgStatistics(statisticsMock);
         double postPerUser = statisticCount.getAvgPostPerUser();
         double commentPerUser = statisticCount.getAvgCommentPerUser();
         double commentPerPost = statisticCount.getAvgCommentPerPost();
 
         System.out.println("WARUNEK: Gdy liczba użytkowników = 0");
         statisticCount.ShowStatistics();
+        String textUser = "Brak użytkowników na forum";
 
         //Then
-        Assert.assertEquals(1000.0/0.0, postPerUser, 0);
-        Assert.assertEquals(2000.0/0.0, commentPerUser, 0);
-        Assert.assertEquals(2.0, commentPerPost, 0);
+        Assert.assertEquals(textUser, text);
     }
 
     @Test

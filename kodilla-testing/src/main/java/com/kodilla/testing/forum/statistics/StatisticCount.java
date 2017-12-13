@@ -1,7 +1,5 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.sun.org.glassfish.external.statistics.Statistic;
-
 public class StatisticCount {
 
     Statistics statistics;
@@ -41,21 +39,32 @@ public class StatisticCount {
         return avgCommentPerPost;
     }
 
-    public void calculateAvgStatistics(Statistics statistics){
+    public String calculateAvgStatistics(Statistics statistics){
         int userNumberDraft = statistics.userNames().size();
-        usersNumber = (double)userNumberDraft;
-        int postNumberDraft = statistics.postsCount();
-        postsNumber = (double)postNumberDraft;
-        int commentsNumberDraft = statistics.commentsCount();
-        commentsNumber = (double)commentsNumberDraft;
-        avgPostPerUser = postsNumber / usersNumber;
-        avgCommentPerUser = commentsNumber / usersNumber;
-        avgCommentPerPost = commentsNumber / postsNumber;
+        if(userNumberDraft!= 0){
+            usersNumber = (double) userNumberDraft;
+            int postNumberDraft = statistics.postsCount();
+            if(postNumberDraft!= 0) {
+                postsNumber = (double) postNumberDraft;
+                int commentsNumberDraft = statistics.commentsCount();
+                commentsNumber = (double) commentsNumberDraft;
+                avgPostPerUser = postsNumber / usersNumber;
+                avgCommentPerUser = commentsNumber / usersNumber;
+                avgCommentPerPost = commentsNumber / postsNumber;
+                return null;
+            }else{
+                return "Brak postów na forum";
+            }
+        } else {
+            return "Brak użytkowników na forum";
+        }
     }
 
-
     public void ShowStatistics() {
-        System.out.println("Liczba użytkownikóow: " + usersNumber);
+        if(calculateAvgStatistics(statistics) != null){
+            System.out.println(calculateAvgStatistics(statistics));
+        }
+        System.out.println("Liczba użytkowników: " + usersNumber);
         System.out.println("Liczba postów: " + postsNumber);
         System.out.println("Liczba komentarzy: " + commentsNumber);
         System.out.println("Średnia liczba postów na użytkownika: " + avgPostPerUser);
