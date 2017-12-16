@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -96,7 +97,7 @@ public class BookDirectoryTestSuite {
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser user1 = new LibraryUser("Tadeusz", "Gwiazdkowy", "80122406622");
         List<Book> user1Books = new ArrayList<Book>();
-        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(user1Books);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(user1Books);
 
         //When
         List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(user1);
@@ -110,10 +111,8 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser user1 = new LibraryUser("Tadeusz", "Gwiazdkowy", "80122406622");
-        List<Book> user1Books = new ArrayList<Book>();
-        Book book1 = new Book("Pierwsza", "Autor1", 2016);
-        user1Books.add(book1);
-        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(user1Books);
+        List<Book> user1Books = generateListOfNBooks(1);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(user1Books);
 
         //When
         List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(user1);
@@ -126,18 +125,8 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser user1 = new LibraryUser("Tadeusz", "Gwiazdkowy", "80122406622");
-        List<Book> user1Books = new ArrayList<Book>();
-        Book book1 = new Book("Pierwsza", "Autor1", 2016);
-        Book book2 = new Book("Druga", "Autor2", 2010);
-        Book book3 = new Book("Trzecia", "Autor3", 2009);
-        Book book4 = new Book("Czwarta", "Autor4", 2015);
-        Book book5 = new Book("Piata", "Autor5", 2013);
-        user1Books.add(book1);
-        user1Books.add(book2);
-        user1Books.add(book3);
-        user1Books.add(book4);
-        user1Books.add(book5);
-        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(user1Books);
+        List<Book> user1Books = generateListOfNBooks(5);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(user1Books);
 
         //When
         List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(user1);
