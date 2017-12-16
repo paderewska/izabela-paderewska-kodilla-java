@@ -27,7 +27,7 @@ public class CollectionTestSuite {
         Assert.assertTrue(test.isEmpty());
     }
     @Test
-    public void testOddNumberExterminatorNormalList(){
+    public void testOddNumberExterminatorNormalList() {
         //given
         OddNumbersExterminator oddNumber = new OddNumbersExterminator();
         ArrayList<Integer> numbers = new ArrayList<Integer>();
@@ -41,9 +41,47 @@ public class CollectionTestSuite {
         oddNumbers.add(2);
         oddNumbers.add(4);
         oddNumbers.add(6);
-         //when
+        //when
         ArrayList<Integer> test = oddNumber.exterminate(numbers);
         //then
         Assert.assertEquals(test, oddNumbers);
-        }
+    }
+    @Test
+    public void test1(){
+        //Given
+        OddNumbersExterminator oddNumber = new OddNumbersExterminator();
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(2);
+        //When
+        ArrayList<Integer> test = oddNumber.exterminate(numbers);
+        //then
+        Assert.assertEquals(1, test.size());
+        int a = test.get(0);
+        Assert.assertEquals(2, a);
+    }
+    @Test
+    public void test21(){
+        //Given
+        OddNumbersExterminator oddNumber = new OddNumbersExterminator();
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(1);
+        //When
+        ArrayList<Integer> test = oddNumber.exterminate(numbers);
+        //then
+        Assert.assertEquals(0, test.size());
+        Assert.assertTrue(test.isEmpty());
+    }
+    @Test
+    public void hejo(){
+    int a = 103;
+    if(a>=Byte.MIN_VALUE && a<=Byte.MAX_VALUE) {
+        byte b = (byte) a;
+        System.out.println(b);
+    }
+
+
+    }
+
+
+
 }

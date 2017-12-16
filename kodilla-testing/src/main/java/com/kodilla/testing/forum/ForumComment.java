@@ -37,9 +37,7 @@ public class ForumComment {
 
     @Override
     public int hashCode() {
-        int result = forumPost.hashCode();
-        result = 31 * result + commentBody.hashCode();
-        result = 31 * result + author.hashCode();
-        return result;
+
+        return Objects.hash(forumPost, commentBody, author);
     }
 }
