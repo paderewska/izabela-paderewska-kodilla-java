@@ -13,25 +13,62 @@ public class WorldTestSuite {
     public void testGetPeopleQuantity(){
 
         //Given
-        World world = new World();
-        List<Continent> theListOfContinent = new ArrayList<>();
+        List<Continent> theListOfContinents = new ArrayList<>();
+        World world = new World(theListOfContinents);
 
-        theListOfContinent.add(new Continent("Europe", new Country("Poland", "37310341")));
-        theListOfContinent.add(new Continent("Europe", new Country("Italy", "61680122")));
-        theListOfContinent.add(new Continent("Europe", new Country("Romania", "21729871")));
-        theListOfContinent.add(new Continent("Europe", new Country("Ukraine", "42805731")));
-        theListOfContinent.add(new Continent("Asia", new Country("China", "1306313813")));
-        theListOfContinent.add(new Continent("Asia", new Country("Japan", "128917246")));
-        theListOfContinent.add(new Continent("Asia", new Country("Thailand", "64185502")));
-        theListOfContinent.add(new Continent("Africa", new Country("Egypt", "81714000")));
-        theListOfContinent.add(new Continent("South America", new Country("Brazil", "198739269")));
-        theListOfContinent.add(new Continent("North America", new Country("Mexico", "107563903")));
+        List<Continent> theListOfCountries = new ArrayList<>();
+
+        List<Country> europeList = new ArrayList<>();
+        List<Country> asiaList = new ArrayList<>();
+        List<Country> africaList = new ArrayList<>();
+        List<Country> southAmericaList = new ArrayList<>();
+        List<Country> northAmericaList = new ArrayList<>();
+
+        Continent europe = new Continent(europeList);
+        Continent asia = new Continent(asiaList);
+        Continent africa = new Continent(africaList);
+        Continent southAmerica = new Continent(southAmericaList);
+        Continent northAmerica = new Continent(northAmericaList);
+
+        Country poland = new Country("Poland", "37310341");
+        Country italy = new Country("Italy", "21729871");
+        Country ukraine = new Country("Ukraine", "42805731");
+        Country romania = new Country("Romania", "21729871");
+        Country china = new Country("China", "37310341");
+        Country japan = new Country("Japan", "128917246");
+        Country thailand = new Country("Thailand", "64185502");
+        Country egypt = new Country("Egypt", "81714000");
+        Country brazil = new Country("Brazil", "198739269");
+        Country mexico = new Country("Mexico", "107563903");
+
+        europeList.add(poland);
+        europeList.add(italy);
+        europeList.add(ukraine);
+        europeList.add(romania);
+        asiaList.add(china);
+        asiaList.add(japan);
+        asiaList.add(thailand);
+        africaList.add(egypt);
+        southAmericaList.add(brazil);
+        northAmericaList.add(mexico);
+
+        theListOfCountries.add(europe);
+        theListOfCountries.add(asia);
+        theListOfCountries.add(africa);
+        theListOfCountries.add(southAmerica);
+        theListOfCountries.add(northAmerica);
+
+        theListOfContinents.add(europe);
+        theListOfContinents.add(asia);
+        theListOfContinents.add(africa);
+        theListOfContinents.add(southAmerica);
+        theListOfContinents.add(northAmerica);
 
         //When
-        BigDecimal totalPeopleNumber = world.getPeopleQuantity(theListOfContinent);
+        BigDecimal totalPeopleNumber = world.getPeopleQuantity(theListOfContinents);
 
         //Then
-        BigDecimal goodNumber = new BigDecimal("2050959798");
+        BigDecimal goodNumber = new BigDecimal("742006075");
         Assert.assertEquals(goodNumber, totalPeopleNumber);
     }
 }
