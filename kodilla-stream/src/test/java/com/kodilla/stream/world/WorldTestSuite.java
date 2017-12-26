@@ -52,12 +52,6 @@ public class WorldTestSuite {
         southAmericaList.add(brazil);
         northAmericaList.add(mexico);
 
-        theListOfCountries.add(europe);
-        theListOfCountries.add(asia);
-        theListOfCountries.add(africa);
-        theListOfCountries.add(southAmerica);
-        theListOfCountries.add(northAmerica);
-
         theListOfContinents.add(europe);
         theListOfContinents.add(asia);
         theListOfContinents.add(africa);
