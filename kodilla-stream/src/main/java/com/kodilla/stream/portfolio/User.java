@@ -2,7 +2,7 @@ package com.kodilla.stream.portfolio;
 
 import java.util.Objects;
 
-public class User {
+public final class User {
     private final String username;
     private final String realName;
 
