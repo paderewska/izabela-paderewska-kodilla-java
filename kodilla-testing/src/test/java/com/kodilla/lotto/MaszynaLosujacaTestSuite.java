@@ -40,4 +40,6 @@ public class MaszynaLosujacaTestSuite {
         Assert.assertEquals(3, ileLiczb);
         }
 
+
+
 }
