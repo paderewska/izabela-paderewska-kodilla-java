@@ -14,6 +14,7 @@ public class PlayerData {
         name = sc.nextLine();
         System.out.println("Wpisz do ilu zwyciestw grasz");
         winNumber = sc.nextInt();
+        sc.close();
     }
 
     public String getName() {

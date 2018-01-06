@@ -16,8 +16,9 @@ public class FlightSearching  {
         if (airport.containsKey(airport1) && airport.containsKey(airport2)) {
             System.out.println("Lotnisko " + airport1 + " mozliwosc odlotu: " + airport.get(airport1));
             System.out.println("Lotnisko " + airport2 + " mozliwosc przylotu: " + airport.get(airport2));
+        } else {
+            throw new RouteNotFoundException("Nie znaleziono wyszukiwanego lotniska");
         }
-        throw new RouteNotFoundException("Nie znaleziono wyszukiwanego lotniska");
     }
 
 }

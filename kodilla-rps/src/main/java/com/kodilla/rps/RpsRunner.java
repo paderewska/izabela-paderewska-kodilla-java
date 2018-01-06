@@ -1,14 +1,22 @@
 package com.kodilla.rps;
 
+import java.util.Scanner;
+
 public class RpsRunner {
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
-       PlayerData playerData = new PlayerData();
-       Rules rules = new Rules();
+        Scanner sc = new Scanner(System.in);
 
-       //Przebieg gry
-       playerData.writeName();
-       rules.showTheRules();
+        PlayerData playerData = new PlayerData();
+        Rules rules = new Rules();
+        TheRound theRound = new TheRound();
+        Summary summary = new Summary();
+        TheEnd theEnd = new TheEnd();
+
+        playerData.writeName();
+        // rules.showTheRules();
+        theRound.startTheRound();
+
 
     }
 }

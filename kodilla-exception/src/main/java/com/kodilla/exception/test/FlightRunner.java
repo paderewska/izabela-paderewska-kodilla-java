@@ -5,7 +5,7 @@ public class FlightRunner {
     public static void main(String args[]){
 
         FlightSearching flightSearching = new FlightSearching();
-        Flight flight1 = new Flight("Chopin", "Modlin");
+        Flight flight1 = new Flight("Chopin", "Chopin");
 
         try {
 ;       flightSearching.findFlight(flight1);
