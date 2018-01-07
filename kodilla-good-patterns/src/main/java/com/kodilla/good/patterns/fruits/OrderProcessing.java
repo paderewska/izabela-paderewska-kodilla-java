@@ -1,5 +1,5 @@
 package com.kodilla.good.patterns.fruits;
 
 public interface OrderProcessing {
-    void process();
+    void process(OrderInformation orderInformation);
 }

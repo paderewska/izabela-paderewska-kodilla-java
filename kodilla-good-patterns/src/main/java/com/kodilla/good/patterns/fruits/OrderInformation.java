@@ -2,22 +2,22 @@ package com.kodilla.good.patterns.fruits;
 
 public class OrderInformation {
 
-    private String supplier;
-    private int ProductNumber;
-    private String productName;
+    public int supplier;
+    public int productNumber;
+    public String productName;
 
-    public OrderInformation(String supplier, int productNumber, String productName) {
+    public OrderInformation(final int supplier, final int productNumber, final String productName) {
         this.supplier = supplier;
-        ProductNumber = productNumber;
+        this.productNumber = productNumber;
         this.productName = productName;
     }
 
-    public String getSupplier() {
+    public int getSupplier() {
         return supplier;
     }
 
     public int getProductNumber() {
-        return ProductNumber;
+        return productNumber;
     }
 
     public String getProductName() {
