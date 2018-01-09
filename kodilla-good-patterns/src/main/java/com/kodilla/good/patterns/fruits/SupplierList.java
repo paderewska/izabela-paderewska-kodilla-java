@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class SupplierList {
 
-
     public HashMap<Integer, OrderProcessing> getTheList() {
 
         HashMap<Integer, OrderProcessing> theList = new HashMap<>();
@@ -14,11 +13,4 @@ public class SupplierList {
 
         return theList;
     }
-
-
-
-
-
-
-
 }
