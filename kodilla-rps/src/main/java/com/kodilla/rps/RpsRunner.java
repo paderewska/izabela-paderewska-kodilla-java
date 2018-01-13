@@ -3,20 +3,33 @@ package com.kodilla.rps;
 import java.util.Scanner;
 
 public class RpsRunner {
+
     public static void main(String args[]) {
 
+        boolean endOrNotEnd = false;
         Scanner sc = new Scanner(System.in);
 
-        PlayerData playerData = new PlayerData();
-        Rules rules = new Rules();
-        TheRound theRound = new TheRound();
-        Summary summary = new Summary();
-        TheEnd theEnd = new TheEnd();
+        while (!endOrNotEnd) {
 
-        playerData.writeName();
-        // rules.showTheRules();
-        theRound.startTheRound();
+            PutTheData putTheData = new PutTheData();
+            PlayerData playerData = putTheData.writeName(sc);
 
+            TheRound theRound = new TheRound();
+            TheRoundData theRoundData = theRound.startTheRound(playerData, sc);
 
+            Summary summary = new Summary();
+            summary.afterFinishGame(playerData, theRoundData);
+
+            TheEnd theEnd = new TheEnd();
+            theEnd.whatNext(sc);
+
+            if (theEnd.getTheEndChar().equals("n")) {
+                endOrNotEnd = false;
+            } else {
+                endOrNotEnd = true;
+            }
+        }
+        sc.close();
+        System.out.println("Koniec gry. Do nastepnego razu!");
     }
 }

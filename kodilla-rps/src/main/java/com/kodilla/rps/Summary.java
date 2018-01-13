@@ -2,16 +2,13 @@ package com.kodilla.rps;
 
 public class Summary {
 
-    PlayerData playerData = new PlayerData();
-    TheRound theRound = new TheRound();
-
-    public void afterFinishGame() {
+    public void afterFinishGame(PlayerData playerData, TheRoundData theRoundData) {
 
         System.out.println("\nKoniec!");
-        System.out.println("Liczba rund: " + theRound.getRoundCounter());
-        System.out.println("Wynik gry: " + playerData.getName() + " vs komputer: " + theRound.getUserResult() + " - " + theRound.getComputerResult());
+        System.out.println("Liczba rund: " + theRoundData.getRoundCounter());
+        System.out.println("Wynik gry: " + playerData.getName() + " vs komputer: " + theRoundData.getUserResult() + " - " + theRoundData.getComputerResult());
 
-        if (theRound.getUserResult() > theRound.getComputerResult()) {
+        if (theRoundData.getUserResult() > theRoundData.getComputerResult()) {
             System.out.println("Wygrana nalezy do Ciebie");
             System.out.println("Gratulacje! " + playerData.getName());
 

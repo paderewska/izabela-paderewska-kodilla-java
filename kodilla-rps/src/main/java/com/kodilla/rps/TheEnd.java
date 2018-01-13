@@ -4,17 +4,18 @@ import java.util.Scanner;
 
 public class TheEnd {
 
-    Scanner sc = new Scanner(System.in);
+    private String theEndChoice = "nic";
 
-    public void whatNext() {
+    public void whatNext(Scanner sc) {
 
         System.out.println("\nWpisz x, jesli chcesz zakonczyc gre");
         System.out.println("Wpisz n, jesli chcesz rozpoczac gre jeszcze raz");
 
-        String gameOver;
+        sc.nextLine();
+        theEndChoice = sc.nextLine();
+    }
 
-        gameOver = sc.nextLine();
-
+    public String getTheEndChar() {
+        return theEndChoice;
     }
 }
-
