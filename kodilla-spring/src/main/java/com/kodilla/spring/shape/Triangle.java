@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class Triangle implements Shape {
     @Override
     public String getShapeName() {
-        return "To jest kwadrat";
+        return "To jest trojkat";
     }
 }
