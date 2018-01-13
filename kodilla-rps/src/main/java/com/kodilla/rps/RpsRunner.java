@@ -21,9 +21,9 @@ public class RpsRunner {
             summary.afterFinishGame(playerData, theRoundData);
 
             TheEnd theEnd = new TheEnd();
-            theEnd.whatNext(sc);
+            boolean ifTheEnd = theEnd.whatNext(sc);
 
-            if (theEnd.getTheEndChar().equals("n")) {
+            if (ifTheEnd) {
                 endOrNotEnd = false;
             } else {
                 endOrNotEnd = true;
