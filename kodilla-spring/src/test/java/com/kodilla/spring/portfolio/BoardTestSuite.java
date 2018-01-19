@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BoardTestSuite {
 
@@ -28,16 +29,19 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When
-        ArrayList<String> theListToDo = board.getToDoList();
-        ArrayList<String> theListInProgress = board.getInProgressList();
-        ArrayList<String> theListDone = board.getDoneList();
-        theListToDo.add("Zadanie pierwsze");
-        theListInProgress.add("Zadanie drugie");
-        theListDone.add("Zadanie trzecie");
+        TaskList theTaskListToDo = board.getToDoList();
+        TaskList theTaskListInProgress = board.getInProgressList();
+        TaskList theTaskListDone = board.getDoneList();
+        List<String> theArrayListToDo = theTaskListToDo.getTasks();
+        List<String> theArrayListInProgress = theTaskListInProgress.getTasks();
+        List<String> theArrayListDone = theTaskListDone.getTasks();
+        theArrayListToDo.add("Zadanie 1");
+        theArrayListInProgress.add("Zadanie 2");
+        theArrayListDone.add("Zadanie 3");
 
         //Then
-        Assert.assertEquals("Zadanie pierwsze", theListToDo.get(0));
-        Assert.assertEquals("Zadanie drugie", theListInProgress.get(0));
-        Assert.assertEquals("Zadanie trzecie", theListDone.get(0));
+        Assert.assertEquals("Zadanie 1", theArrayListToDo.get(0));
+        Assert.assertEquals("Zadanie 2", theArrayListInProgress.get(0));
+        Assert.assertEquals("Zadanie 3", theArrayListDone.get(0));
     }
 }
