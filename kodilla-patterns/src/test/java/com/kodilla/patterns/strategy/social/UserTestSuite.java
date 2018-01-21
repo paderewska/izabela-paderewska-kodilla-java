@@ -1,6 +1,5 @@
-package com.kodilla.patterns.prototype.strategy.social;
+package com.kodilla.patterns.strategy.social;
 
-import com.kodilla.patterns.strategy.social.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -40,5 +39,6 @@ public class UserTestSuite {
         System.out.println("Justa lubi " + justaSocial);
 
         //Than
-        Assert.assertEquals("Facebook", justaSocial);}
+        Assert.assertEquals("Facebook", justaSocial);
+    }
 }

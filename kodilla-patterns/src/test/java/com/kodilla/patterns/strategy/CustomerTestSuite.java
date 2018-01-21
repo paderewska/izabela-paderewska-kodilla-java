@@ -1,9 +1,5 @@
-package com.kodilla.patterns.prototype.strategy;
+package com.kodilla.patterns.strategy;
 
-import com.kodilla.patterns.strategy.CorporateCustomer;
-import com.kodilla.patterns.strategy.Customer;
-import com.kodilla.patterns.strategy.IndividualCustomer;
-import com.kodilla.patterns.strategy.IndividualYoungCustomer;
 import com.kodilla.patterns.strategy.predictors.AggressivePredictor;
 import org.junit.Assert;
 import org.junit.Test;
