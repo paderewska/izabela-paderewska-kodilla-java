@@ -15,7 +15,7 @@ public class TaskFactoryTestSuite {
         //Then
         Assert.assertEquals("Nowy telewizor", shopping.getTaskName());
         Assert.assertEquals("Kup TV w liczbie 0.0", shopping.executeTask());
-        Assert.assertFalse(shopping.isTaskExecuted());
+        Assert.assertTrue(shopping.isTaskExecuted());
     }
 
     @Test

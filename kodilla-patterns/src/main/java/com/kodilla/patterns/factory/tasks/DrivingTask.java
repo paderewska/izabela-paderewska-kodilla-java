@@ -4,6 +4,7 @@ public final class DrivingTask implements Task {
     final String taskName;
     final String where;
     final String using;
+    boolean ifExecuted = false;
 
     public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
@@ -13,6 +14,7 @@ public final class DrivingTask implements Task {
 
     @Override
     public String executeTask() {
+        ifExecuted = true;
         return "Jedz do " + where + " i wez " + using;
     }
 
@@ -23,10 +25,6 @@ public final class DrivingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (where != null && using != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return ifExecuted;
     }
 }
