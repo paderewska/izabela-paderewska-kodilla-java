@@ -1,10 +1,7 @@
 package com.kodilla.stream.niefunkcyjnie;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Main {
 
@@ -108,35 +105,64 @@ public class Main {
     }
 
     public static Integer getMax(List<Integer> numbers) {
-        return 0;
+
+        Integer max = Collections.max(numbers);
+
+        return max;
     }
 
     public static Integer getMaxJava8(List<Integer> numbers) {
-        return 0;
+
+        return numbers.stream()
+                .max(Comparator.comparing(Integer::valueOf)).get();
     }
 
     public static Integer getMin(List<Integer> numbers) {
-        return 0;
+
+        Integer min = Collections.min(numbers);
+
+        return min;
     }
 
     public static Integer getMinJava8(List<Integer> numbers) {
-        return 0;
+
+        return numbers.stream()
+                .min(Comparator.comparing(Integer::valueOf)).get();
     }
 
     public static Integer getSum(List<Integer> numbers) {
-        return 0;
+
+        int sum = 0;
+        for(int n : numbers) {
+            sum += n;
+        }
+        return sum;
     }
 
     public static Integer getSumJava8(List<Integer> numbers) {
 
-        return 0;
+        return numbers.stream()
+                .mapToInt(n -> n)
+                .sum();
     }
 
     public static Integer getAverage(List<Integer> numbers) {
-        return 0;
+
+        int sum = 0;
+        for(int n : numbers) {
+            sum += n;
+        }
+
+        int avr = sum/numbers.size();
+
+        return avr;
     }
 
     public static Integer getAverageJava8(List<Integer> numbers) {
-        return 0;
+        OptionalDouble average = numbers.stream()
+                .mapToInt(n -> n)
+                .average();
+
+        return (int) average.getAsDouble();
     }
 }
