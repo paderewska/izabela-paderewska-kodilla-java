@@ -16,10 +16,12 @@ public class SimplySolver {
 
     public int solver() {
 
-
-        theBoard.getElement(1,1).getValue();
-        int cos = theBoard.getElement(1,1).getValue();
+        theBoard.getElement(1,5).getValue();
+        int cos = theBoard.getElement(1,5).getValue();
         System.out.println(cos);
+
+
+
 
         return cos;
 

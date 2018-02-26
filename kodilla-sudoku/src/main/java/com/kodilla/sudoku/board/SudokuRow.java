@@ -1,22 +1,25 @@
 package com.kodilla.sudoku.board;
 
-import com.kodilla.sudoku.board.SudokuElement;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kodilla.sudoku.board.SudokuBoard.MAX;
+import static com.kodilla.sudoku.board.SudokuBoard.MIN;
+
 public class SudokuRow {
 
-    private List<SudokuElement> theRow = new ArrayList();
+    SudokuBoard theBoard = new SudokuBoard();
 
-    public SudokuRow() {
-    }
 
-    public SudokuRow(List<SudokuElement> theRow) {
-        this.theRow = theRow;
-    }
+    public List<SudokuElement> getTheRow(int rowNumber) {
 
-    public List<SudokuElement> getTheRow() {
+        List<SudokuElement> theRow = new ArrayList<>();
+
+        for (int n = 1; n < 10; n++) {
+            theRow.add(theBoard.getElement(rowNumber, n));
+        }
+
         return theRow;
     }
+
 }

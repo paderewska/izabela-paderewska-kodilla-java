@@ -14,7 +14,7 @@ public class SudokuBoard {
     }
 
     public SudokuElement getElement(int row, int column) {
-        return board[row][column];
+        return board[row-1][column-1];
     }
 
     public void setElement(int row, int column, SudokuElement sudokuElement) {
