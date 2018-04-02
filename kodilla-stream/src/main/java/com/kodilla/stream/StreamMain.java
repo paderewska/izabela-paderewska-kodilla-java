@@ -7,6 +7,18 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
+
+    public static int superMetoda(int doOdwrocenia) {
+
+       int nowaliczba = 0;
+       while(doOdwrocenia>0) {
+
+           nowaliczba = nowaliczba*10 + doOdwrocenia%10;
+           doOdwrocenia = doOdwrocenia / 10;
+           }
+        return nowaliczba;
+    }
+
     public static void main(String[] args) {
         Forum forum = new Forum();
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -22,5 +34,7 @@ public class StreamMain {
         mapOfForum.entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
+
+        System.out.println(superMetoda(123456789));
     }
 }
