@@ -82,8 +82,8 @@ public class CrudAppTestSuite {
         WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
         driverTrello.get(TRELLO_URL);
 
-        driverTrello.findElement(By.id("user")).sendKeys("keyWord");
-        driverTrello.findElement(By.id("password")).sendKeys("password");
+        driverTrello.findElement(By.id("user")).sendKeys("iza.paderewska@gmail.com");
+        driverTrello.findElement(By.id("password")).sendKeys("Kolorowy53n2018!");
         driverTrello.findElement(By.id("login")).submit();
 
         Thread.sleep(2000);
@@ -126,7 +126,6 @@ public class CrudAppTestSuite {
 
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
-        deleteTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
         deleteTestTaskToTrello(taskName);
     }
